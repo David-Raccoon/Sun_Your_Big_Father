@@ -39,7 +39,7 @@ public class DataBase {
         this.majors = majors;
     }
 
-    Major getMajorByName(String name) {
+    public Major getMajorByName(String name) {
         for (Major major : majors) {
             if (major.getName().equals(name))
                 return major;
@@ -49,7 +49,7 @@ public class DataBase {
         return null;
     }
 
-    Course getCourseByCode(String code) {
+    public Course getCourseByCode(String code) {
         for (Course course : courses) {
             if (course.getCode().equals(code))
                 return course;
@@ -59,18 +59,13 @@ public class DataBase {
         return null;
     }
 
-    public void print() {
-        System.out.println("======= Students =======");
-        for (Student student : students)
-            student.print();
-        System.out.println("======= Courses =======");
-        for (Course course : courses)
-            course.print();
-        System.out.println("======= Learning Records =======");
-        for (LearnRecord learnRecord : learnRecords)
-            learnRecord.print();
-        System.out.println("======= Majors =======");
-        for (Major major : majors)
-            major.print();
+    public Student getStudentByName(String name) {
+        for (Student student : students) {
+            if (student.getName().equals(name))
+                return student;
+        }
+        assert false;
+        // should not reach here
+        return null;
     }
 }

@@ -1,8 +1,6 @@
 package main;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -83,22 +81,37 @@ public class InfoReader {
 
     public static void main(String[] args) throws FileNotFoundException {
 
+        // 导入课程数据
         ArrayList<Course> courses = readCourseInfo(new Scanner(new FileInputStream(courseInfoName)));
         DataBase.getDataBase().setCourses(courses);
 
+        // 导入专业数据
         ArrayList<Major> majors = new ArrayList<>();
         for (String majorName : majorNames)
             majors.add(readMajorInfo(majorName, new Scanner(new FileInputStream(majorName + ".txt"))));
         DataBase.getDataBase().setMajors(majors);
 
+        // 导入修读信息
         ArrayList<LearnRecord> learnRecords = readLearnRecordInfo(new Scanner(new FileInputStream(learnRecordInfoName)));
         DataBase.getDataBase().setLearnRecords(learnRecords);
 
+        // 导入学生数据
         ArrayList<Student> students = readStudentInfo(new Scanner((new FileInputStream(studentsInfoName))));
         DataBase.getDataBase().setStudents(students);
 
+        for (Student student : students) {
+            PrintStream out = new PrintStream(new FileOutputStream(student.getName() + "_1.json"));
+            out.print(student.getProgressJSON());
+        }
 
+        Major major = DataBase.getDataBase().getMajorByName("Software Engineering");
+        DataBase.getDataBase().getStudentByName("San Zhang").changeMajor(major);
+        major = DataBase.getDataBase().getMajorByName("Network Engineering");
+        DataBase.getDataBase().getStudentByName("Si Li").changeMajor(major);
 
-        DataBase.getDataBase().print();
+        for (Student student : students) {
+            PrintStream out = new PrintStream(new FileOutputStream(student.getName() + "_2.json"));
+            out.print(students.get(0).getProgressJSON());
+        }
     }
 }
