@@ -15,6 +15,70 @@ public class CourseGroup {
     int majorElectiveCredits = 0;
     int electiveCredits = 0;
 
+    public ArrayList<Course> getBasicCompulsory() {
+        return basicCompulsory;
+    }
+
+    public void setBasicCompulsory(ArrayList<Course> basicCompulsory) {
+        this.basicCompulsory = basicCompulsory;
+    }
+
+    public ArrayList<Course> getMajorCompulsory() {
+        return majorCompulsory;
+    }
+
+    public void setMajorCompulsory(ArrayList<Course> majorCompulsory) {
+        this.majorCompulsory = majorCompulsory;
+    }
+
+    public ArrayList<Course> getMajorElective() {
+        return majorElective;
+    }
+
+    public void setMajorElective(ArrayList<Course> majorElective) {
+        this.majorElective = majorElective;
+    }
+
+    public ArrayList<ArrayList<Course>> getModules() {
+        return modules;
+    }
+
+    public void setModules(ArrayList<ArrayList<Course>> modules) {
+        this.modules = modules;
+    }
+
+    public ArrayList<Integer> getModuleCourseCount() {
+        return moduleCourseCount;
+    }
+
+    public void setModuleCourseCount(ArrayList<Integer> moduleCourseCount) {
+        this.moduleCourseCount = moduleCourseCount;
+    }
+
+    public int getBasicCompulsoryCredits() {
+        return basicCompulsoryCredits;
+    }
+
+    public void setBasicCompulsoryCredits(int basicCompulsoryCredits) {
+        this.basicCompulsoryCredits = basicCompulsoryCredits;
+    }
+
+    public int getMajorCompulsoryCredits() {
+        return majorCompulsoryCredits;
+    }
+
+    public void setMajorCompulsoryCredits(int majorCompulsoryCredits) {
+        this.majorCompulsoryCredits = majorCompulsoryCredits;
+    }
+
+    public int getMajorElectiveCredits() {
+        return majorElectiveCredits;
+    }
+
+    public int getElectiveCredits() {
+        return electiveCredits;
+    }
+
     public void addBasicCompulsory(Course course) {
         basicCompulsory.add(course);
         basicCompulsoryCredits += course.getCredit();

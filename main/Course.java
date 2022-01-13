@@ -1,9 +1,10 @@
 package main;
 
 public class Course {
-    String code;
-    String name;
-    int credit;
+    private String code;
+    private String name;
+    private int credit;
+    private String remark = "null";
 
     public Course(String code, String name, int credit) {
         this.code = code;
@@ -21,6 +22,10 @@ public class Course {
 
     public int getCredit() {
         return credit;
+    }
+
+    public String getRemark() {
+        return remark;
     }
 
     void print() {

@@ -10,6 +10,10 @@ public class DataBase {
     ArrayList<LearnRecord> learnRecords;
     ArrayList<Major> majors;
 
+    public ArrayList<LearnRecord> getLearnRecords() {
+        return learnRecords;
+    }
+
     private DataBase() {
     }
 

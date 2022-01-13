@@ -91,11 +91,13 @@ public class InfoReader {
             majors.add(readMajorInfo(majorName, new Scanner(new FileInputStream(majorName + ".txt"))));
         DataBase.getDataBase().setMajors(majors);
 
+        ArrayList<LearnRecord> learnRecords = readLearnRecordInfo(new Scanner(new FileInputStream(learnRecordInfoName)));
+        DataBase.getDataBase().setLearnRecords(learnRecords);
+
         ArrayList<Student> students = readStudentInfo(new Scanner((new FileInputStream(studentsInfoName))));
         DataBase.getDataBase().setStudents(students);
 
-        ArrayList<LearnRecord> learnRecords = readLearnRecordInfo(new Scanner(new FileInputStream(learnRecordInfoName)));
-        DataBase.getDataBase().setLearnRecords(learnRecords);
+
 
         DataBase.getDataBase().print();
     }

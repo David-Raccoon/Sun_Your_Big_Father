@@ -11,9 +11,11 @@ public class Student {
         this.major = DataBase.getDataBase().getMajorByName(majorName);
         this.id = id;
         this.name = name;
+        progress = new Progress(major, id);
     }
 
     void print() {
         System.out.println(id + ", " + name + ", " + major.getName());
+        System.out.println(progress.getCompulsory().getJSON());
     }
 }
